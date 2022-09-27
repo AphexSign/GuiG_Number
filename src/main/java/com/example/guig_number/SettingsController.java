@@ -18,14 +18,14 @@ import javafx.stage.Stage;
 
 public class SettingsController {
 
-    private Difficulty difficulty=Difficulty.EASY;
-    private Range range= com.example.guig_number.mechanics.Range.TEN;
+    private Difficulty difficulty = Difficulty.EASY;
+    private Range range = com.example.guig_number.mechanics.Range.TEN;
     public static Mode mode;
     public static Tasker tasker;
 
     public static Party party;
 
-    public Mode getMode(){
+    public Mode getMode() {
         return this.mode;
     }
 
@@ -53,34 +53,33 @@ public class SettingsController {
     @FXML
     void beginPartyButtonOnClick(ActionEvent event) {
         System.out.println("Begin new party");
-            this.mode=new Mode(this.range,this.difficulty);
-            GlobalVar.Mode=new Mode(this.range,this.difficulty);
+        this.mode = new Mode(this.range, this.difficulty);
+        GlobalVar.Mode = new Mode(this.range, this.difficulty);
 
-            this.tasker=new Tasker(this.mode);
-            GlobalVar.tasker=new Tasker(GlobalVar.Mode);
+        this.tasker = new Tasker(this.mode);
+        GlobalVar.tasker = new Tasker(GlobalVar.Mode);
 
-            party=new Party(0,0,this.getMode().getTryCount(),false);
+       // party = new Party(0, 0, this.getMode().getTryCount(), false);
 
 
-        System.out.println(party);
-       // System.out.println(GlobalVar.Mode);
+        //System.out.println(party);
+        // System.out.println(GlobalVar.Mode);
 
         final Node source = (Node) event.getSource();
         final Stage stage2 = (Stage) source.getScene().getWindow();
         stage2.close();
 
-        FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("GameMenu.fxml"));
-        Parent root1= null;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameMenu.fxml"));
+        Parent root1 = null;
         try {
             root1 = (Parent) fxmlLoader.load();
-            Stage stage=new Stage();
+            Stage stage = new Stage();
             stage.setTitle("Угадайка v0.01");
             stage.setScene(new Scene(root1));
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
 
 
     }
@@ -93,11 +92,11 @@ public class SettingsController {
         final Stage stage2 = (Stage) source.getScene().getWindow();
         stage2.close();
 
-        FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("MainMenu.fxml"));
-        Parent root1= null;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+        Parent root1 = null;
         try {
             root1 = (Parent) fxmlLoader.load();
-            Stage stage=new Stage();
+            Stage stage = new Stage();
             stage.setTitle("Угадайка v0.01");
             stage.setScene(new Scene(root1));
             stage.show();
@@ -110,34 +109,34 @@ public class SettingsController {
 
     @FXML
     void getDifficulty(ActionEvent event) {
-        if(rButton1.isSelected()){
-            this.difficulty=Difficulty.EASY;
+        if (rButton1.isSelected()) {
+            this.difficulty = Difficulty.EASY;
         }
-        if(rButton2.isSelected()){
-            this.difficulty=Difficulty.MEDIUM;
+        if (rButton2.isSelected()) {
+            this.difficulty = Difficulty.MEDIUM;
         }
-        if(rButton3.isSelected()){
-            this.difficulty=Difficulty.HARD;
+        if (rButton3.isSelected()) {
+            this.difficulty = Difficulty.HARD;
         }
-        if(rButton4.isSelected()){
-            this.difficulty=Difficulty.IMPOSSIBLE;
+        if (rButton4.isSelected()) {
+            this.difficulty = Difficulty.IMPOSSIBLE;
         }
     }
 
     @FXML
     void getRange(ActionEvent event) {
 
-        if(rButton5.isSelected()){
-            this.range= com.example.guig_number.mechanics.Range.TEN;
+        if (rButton5.isSelected()) {
+            this.range = com.example.guig_number.mechanics.Range.TEN;
         }
-        if(rButton6.isSelected()){
-            this.range= com.example.guig_number.mechanics.Range.HUNDRED;
+        if (rButton6.isSelected()) {
+            this.range = com.example.guig_number.mechanics.Range.HUNDRED;
         }
-        if(rButton7.isSelected()){
-            this.range= com.example.guig_number.mechanics.Range.THOUSAND;
+        if (rButton7.isSelected()) {
+            this.range = com.example.guig_number.mechanics.Range.THOUSAND;
         }
-        if(rButton8.isSelected()){
-            this.range= com.example.guig_number.mechanics.Range.TENTHOUSAND;
+        if (rButton8.isSelected()) {
+            this.range = com.example.guig_number.mechanics.Range.TENTHOUSAND;
         }
 
 

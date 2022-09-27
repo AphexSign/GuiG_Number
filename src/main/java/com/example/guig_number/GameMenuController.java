@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 public class GameMenuController {
 
 
-   // public static int taskNumber = SettingsController.tasker.showNumberTask();
+    // public static int taskNumber = SettingsController.tasker.showNumberTask();
     public static int taskNumber = GlobalVar.tasker.showNumberTask();
     public static Mode myMode = GlobalVar.Mode;
     private int tryCount = GlobalVar.Mode.getTryCount();
@@ -69,14 +69,27 @@ public class GameMenuController {
             if (inputNumber == taskNumber) {
                 this.myTries++;
                 this.totalScores = (int) (((this.totalTries - this.myTries) * GlobalVar.Mode.getDifficult().getValue() * GlobalVar.Mode.getBound() + GlobalVar.Mode.getBound()) / totalTries);
+                //Записать все в party
+                //Передать все в список к игроку
+
+                Party party=new Party(totalScores,myTries,totalTries,true);
+                System.out.println("Кол-во игроков: "+GlobalVar.playerList.size());
+                System.out.println("Игрок - имя: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName());
+                GlobalVar.playerList.get(GlobalVar.selectedPlayerID).addParty(party);
+                System.out.println("Сколько партий: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList().size());
+
+
+             //   System.out.println("Количество партий:"+MainMenuController.player.getPartyList().size());
+
                 minusTry(event);
                 System.out.println(this.totalScores);
                 labelCondition.setText("Верно");
                 labelResult2.setText("Молодец!");
 
                 msg1 = "ВЫ ВЫИГРАЛИ!";
-                msg2 = "Ваш игрок " + MainMenuController.player.getName() + " набрал " + this.totalScores + " очков!";
+                msg2 = "Ваш игрок " + GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName() + " набрал " + this.totalScores + " очков!";
                 msg3 = "Затратив при этом " + myTries + "/" + totalTries + " попыток.";
+
                 resetGame();
 
                 final Node source = (Node) event.getSource();
@@ -114,8 +127,8 @@ public class GameMenuController {
     @FXML
     void surrenderButtonAction(ActionEvent event) {
 
-        labelAnswer.setText("Загаданное число: "+GlobalVar.tasker.showNumberTask());
-        System.out.println("Глоб.текущий режим: "+GlobalVar.Mode);
+        labelAnswer.setText("Загаданное число: " + GlobalVar.tasker.showNumberTask());
+        System.out.println("Глоб.текущий режим: " + GlobalVar.Mode);
     }
 
     private void minusTry(ActionEvent event) {
@@ -126,9 +139,23 @@ public class GameMenuController {
 
             //Вызвать, что проиграл
             msg1 = "ВЫ ПРОИГРАЛИ!";
-            msg2 = "Ваш игрок " + MainMenuController.player.getName() + " набрал " + this.totalScores + " очков!";
+            msg2 = "Ваш игрок " + GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName() + " набрал " + this.totalScores + " очков!";
             msg3 = "Затратив при этом " + totalTries + "/" + totalTries + " попыток.";
-            msg9 = "Число было: "+GlobalVar.tasker.showNumberTask();
+            msg9 = "Число было: " + GlobalVar.tasker.showNumberTask();
+
+            //Записать все в party
+            //Передать все в список к игроку
+
+            Party party=new Party(totalScores,myTries,totalTries,false);
+            System.out.println("Кол-во игроков: "+GlobalVar.playerList.size());
+            System.out.println("Игрок - имя: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName());
+            GlobalVar.playerList.get(GlobalVar.selectedPlayerID).addParty(party);
+            System.out.println("Сколько партий: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList().size());
+
+
+
+
+
 
             final Node source = (Node) event.getSource();
             final Stage stage2 = (Stage) source.getScene().getWindow();
@@ -156,13 +183,13 @@ public class GameMenuController {
 
     public void resetGame() {
 
-     //   this.tryCount = this.myMode.getTryCount();
+        //   this.tryCount = this.myMode.getTryCount();
         this.tryCount = GlobalVar.Mode.getTryCount();
         Tasker resetTasker = GlobalVar.tasker;
 
         this.myTries = 0;
         labelTry.setText(Integer.toString(this.myMode.getTryCount()));
-        msg9="";
+        msg9 = "";
     }
 
     @FXML

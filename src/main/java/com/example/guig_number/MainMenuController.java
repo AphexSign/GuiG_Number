@@ -24,7 +24,7 @@ import java.io.IOException;
 
 public class MainMenuController {
 
-    public static Player player;
+    public Player player;
 
     @FXML
     private Label labelExcep;
@@ -50,7 +50,7 @@ public class MainMenuController {
         if (listView.getItems().size() > 0 && selectedId >= 0) {
 
             try {
-
+                GlobalVar.selectedPlayerID=selectedId;
                 player = GlobalVar.playerList.get(selectedId);
 
                 System.out.println("Игрок с именем: " + player.getName());
@@ -81,8 +81,56 @@ public class MainMenuController {
         System.out.println("Зал славы");
     }
 
+
+
+
+
+
     public void onMyProgButtonClick(ActionEvent actionEvent) {
         System.out.println("Мой прогресс");
+
+
+        int selectedId = listView.getSelectionModel().getSelectedIndex();
+
+        if (selectedId < 0 && listView.getItems().size() > 0) {
+            //Динамическая подмена lable
+            Platform.runLater(() -> labelExcep.setText("Выберите из списка игрока!"));
+        }
+
+        if (listView.getItems().size() > 0 && selectedId >= 0) {
+
+            try {
+                GlobalVar.selectedPlayerID=selectedId;
+                player = GlobalVar.playerList.get(selectedId);
+
+                System.out.println("Игрок с именем: " + player.getName());
+
+                //Закрыть старое окно
+                final Node source = (Node) actionEvent.getSource();
+                final Stage stage2 = (Stage) source.getScene().getWindow();
+                stage2.close();
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MyProgress.fxml"));
+                Parent root1 = null;
+                root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Settings Menu");
+                stage.setScene(new Scene(root1));
+                stage.show();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            labelExcep.setText("Добавьте игрока");
+        }
+
+
+
+
+
+
+
     }
 
     public void onQuitButtonClick(ActionEvent actionEvent) {

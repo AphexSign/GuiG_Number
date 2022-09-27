@@ -9,4 +9,5 @@ public class GlobalVar {
     public static Mode Mode;
     public static Tasker tasker;
     public static List<Player> playerList=new ArrayList<>();
+    public static int selectedPlayerID;
 }

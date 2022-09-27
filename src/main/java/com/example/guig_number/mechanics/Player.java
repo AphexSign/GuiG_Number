@@ -1,10 +1,11 @@
 package com.example.guig_number.mechanics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
     private String name;
-    private List<Party> partyList;
+    private List<Party> partyList=new ArrayList<>();
 
     public String getName() {
         return name;

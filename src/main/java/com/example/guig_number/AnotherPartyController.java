@@ -57,15 +57,15 @@ public class AnotherPartyController {
         final Stage stage2 = (Stage) source.getScene().getWindow();
         stage2.close();
 
-        GlobalVar.tasker=new Tasker(GlobalVar.Mode);
+        GlobalVar.tasker = new Tasker(GlobalVar.Mode);
         //Tasker tasker=new Tasker(GameMenuController.myMode);
-        GameMenuController.taskNumber=GlobalVar.tasker.generateRnd(GlobalVar.Mode);
-     //   GameMenuController.taskNumber = tasker.generateRnd(GameMenuController.myMode);
-        FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("GameMenu.fxml"));
-        Parent root1= null;
+        GameMenuController.taskNumber = GlobalVar.tasker.generateRnd(GlobalVar.Mode);
+        //   GameMenuController.taskNumber = tasker.generateRnd(GameMenuController.myMode);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameMenu.fxml"));
+        Parent root1 = null;
         try {
             root1 = (Parent) fxmlLoader.load();
-            Stage stage=new Stage();
+            Stage stage = new Stage();
             stage.setTitle("Угадайка v0.01");
             stage.setScene(new Scene(root1));
             stage.show();
@@ -83,11 +83,11 @@ public class AnotherPartyController {
         stage2.close();
 
         //flushGame();
-        FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("MainMenu.fxml"));
-        Parent root1= null;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+        Parent root1 = null;
         try {
             root1 = (Parent) fxmlLoader.load();
-            Stage stage=new Stage();
+            Stage stage = new Stage();
             stage.setTitle("Угадайка v0.01");
             stage.setScene(new Scene(root1));
             stage.show();
@@ -96,17 +96,20 @@ public class AnotherPartyController {
         }
 
     }
-    public void flushGame(){
+
+    public void flushGame() {
         System.out.println(GlobalVar.Mode);
     }
+
     @FXML
     void initialize() {
 
 
-        if (GameMenuController.msg1.equals("ВЫ ПРОИГРАЛИ!")){
+        if (GameMenuController.msg1.equals("ВЫ ПРОИГРАЛИ!")) {
             label1.setTextFill(Color.RED);
+        } else {
+            label1.setTextFill(Color.GREEN);
         }
-        else {label1.setTextFill(Color.GREEN);}
 
         label1.setText(GameMenuController.msg1);
         label2.setText(GameMenuController.msg2);

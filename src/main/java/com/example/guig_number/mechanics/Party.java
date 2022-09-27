@@ -47,12 +47,11 @@ public class Party {
 
     @Override
     public String toString() {
-        return "Party{" +
-                "sumPoints=" + sumPoints +
-                ", numTries=" + numTries +
-                ", totalTries=" + totalTries +
-                ", win=" + win +
-                '}';
+        return "" +
+                "Очков за партию: " + sumPoints +
+                ", Число попыток: " + numTries +
+                ", Всего попыток: " + totalTries +
+                ", Выиграл=" + win;
     }
 
 
