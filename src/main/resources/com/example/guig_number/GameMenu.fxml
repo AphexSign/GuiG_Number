@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="423.0" prefWidth="493.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.guig_number.GameMenuController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <AnchorPane prefHeight="404.0" prefWidth="453.0">
+         <children>
+            <Button fx:id="buttonCheck" layoutX="56.0" layoutY="291.0" mnemonicParsing="false" onAction="#checkButtonAction" prefHeight="64.0" prefWidth="147.0" text="Мне повезет!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="SurrenderButton" layoutX="280.0" layoutY="291.0" mnemonicParsing="false" onAction="#surrenderButtonAction" prefHeight="64.0" prefWidth="124.0" text="Ответ">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="273.0" layoutY="37.0" prefHeight="50.0" prefWidth="124.0" text="Число попыток" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelTry" alignment="CENTER" layoutX="289.0" layoutY="75.0" prefHeight="40.0" prefWidth="92.0" text="9999999">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textField" alignment="CENTER" layoutX="48.0" layoutY="102.0" promptText="---Введите число---" />
+            <Label layoutX="48.0" layoutY="140.0" prefHeight="40.0" prefWidth="85.0" text="Результат:">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Label fx:id="labelCondition" layoutX="130.0" layoutY="140.0" prefHeight="40.0" prefWidth="79.0" text="Не знаю">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelResult2" layoutX="48.0" layoutY="183.0" prefHeight="50.0" prefWidth="391.0" />
+            <Label fx:id="labelAnswer" layoutX="269.0" layoutY="140.0" prefHeight="40.0" prefWidth="147.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

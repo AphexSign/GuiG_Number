@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="GuiG_Number">
+    <output-path>$PROJECT_DIR$/out/artifacts/GuiG_Number</output-path>
+    <root id="root">
+      <element id="archive" name="GuiG_Number.jar">
+        <element id="module-output" name="GuiG_Number" />
+      </element>
+    </root>
+  </artifact>
+</component>

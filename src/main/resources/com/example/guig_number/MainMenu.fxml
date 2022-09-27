@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="423.0" prefWidth="493.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.guig_number.MainMenuController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <BorderPane prefHeight="40.0" prefWidth="413.0" />
+   <AnchorPane prefHeight="393.0" prefWidth="445.0">
+      <children>
+          <Button id="ngame" fx:id="gameButton" layoutX="25.0" layoutY="56.0" onAction="#gameButtonAction" prefHeight="30.0" prefWidth="124.0" text="NEW GAME">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+         <Button id="hof" layoutX="25.0" layoutY="96.0" onAction="#onHofButtonClick" prefHeight="25.0" prefWidth="125.0" text="HALL OF FAME">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+         <Button id="myprog" layoutX="26.0" layoutY="135.0" onAction="#onMyProgButtonClick" prefHeight="30.0" prefWidth="124.0" text="MY PROGRESS">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+         <Button id="quit" layoutX="26.0" layoutY="175.0" onAction="#onQuitButtonClick" prefHeight="25.0" prefWidth="124.0" text="QUIT">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+         <ListView fx:id="listView" editable="true" fixedCellSize="30.0" layoutX="227.0" layoutY="11.0" prefHeight="200.0" prefWidth="200.0" />
+         <TextField fx:id="textField" layoutX="227.0" layoutY="239.0" prefHeight="25.0" prefWidth="200.0" />
+         <Button fx:id="addPlayerButton" layoutX="227.0" layoutY="277.0" mnemonicParsing="false" onAction="#addPlayerButtonClick" prefHeight="25.0" prefWidth="85.0" text="Add Player" />
+         <Button fx:id="removePlayerButton" layoutX="327.0" layoutY="277.0" mnemonicParsing="false" onAction="#removePlayerButtonClick" text="Remove Player" />
+         <Label fx:id="labelExcep" layoutX="227.0" layoutY="214.0" prefHeight="17.0" prefWidth="200.0" />
+      </children>
+   </AnchorPane>
+</VBox>
