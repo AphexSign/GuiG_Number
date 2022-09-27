@@ -83,12 +83,7 @@ public class MainMenuController {
 
 
 
-
-
-
     public void onMyProgButtonClick(ActionEvent actionEvent) {
-        System.out.println("Мой прогресс");
-
 
         int selectedId = listView.getSelectionModel().getSelectedIndex();
 
@@ -124,11 +119,6 @@ public class MainMenuController {
         } else {
             labelExcep.setText("Добавьте игрока");
         }
-
-
-
-
-
 
 
     }

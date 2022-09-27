@@ -61,25 +61,29 @@ public class GameMenuController {
     @FXML
     void checkButtonAction(ActionEvent event) {
 
+
+
+
         try {
             int inputNumber = Integer.parseInt(textField.getText());
 
             //Подсчет очков здесь
             //(ВсегоПопыток-МоиПопытки)*Сложность(1-4)*Диапазон(10-10000)
-            if (inputNumber == taskNumber) {
+            if ((inputNumber == taskNumber)&&tryCount>0) {
                 this.myTries++;
+
                 this.totalScores = (int) (((this.totalTries - this.myTries) * GlobalVar.Mode.getDifficult().getValue() * GlobalVar.Mode.getBound() + GlobalVar.Mode.getBound()) / totalTries);
                 //Записать все в party
                 //Передать все в список к игроку
 
-                Party party=new Party(totalScores,myTries,totalTries,true,GlobalVar.Mode.getDifficult(),GlobalVar.Mode.getRange());
+                Party party = new Party(totalScores, myTries, totalTries, true, GlobalVar.Mode.getDifficult(), GlobalVar.Mode.getRange());
 //                System.out.println("Кол-во игроков: "+GlobalVar.playerList.size());
 //                System.out.println("Игрок - имя: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName());
                 GlobalVar.playerList.get(GlobalVar.selectedPlayerID).addParty(party);
 //                System.out.println("Сколько партий: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList().size());
 
 
-             //   System.out.println("Количество партий:"+MainMenuController.player.getPartyList().size());
+                //   System.out.println("Количество партий:"+MainMenuController.player.getPartyList().size());
 
                 minusTry(event);
                 System.out.println(this.totalScores);
@@ -135,7 +139,9 @@ public class GameMenuController {
 
         //Подсчет очков здесь
         //(ВсегоПопыток-МоиПопытки)*Сложность(1-4)*Диапазон(10-10000)
-        if (tryCount <= 1) {
+        //  if (tryCount <= 1)
+        int inputNumber = Integer.parseInt(textField.getText());
+        if ((myTries>totalTries-1)&&(inputNumber != taskNumber)) {
 
             //Вызвать, что проиграл
             msg1 = "ВЫ ПРОИГРАЛИ!";
@@ -145,16 +151,8 @@ public class GameMenuController {
 
             //Записать все в party
             //Передать все в список к игроку
-
-            Party party=new Party(totalScores,myTries,totalTries,false,GlobalVar.Mode.getDifficult(),GlobalVar.Mode.getRange());
-//            System.out.println("Кол-во игроков: "+GlobalVar.playerList.size());
-//            System.out.println("Игрок - имя: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName());
+            Party party = new Party(totalScores, myTries, totalTries, false, GlobalVar.Mode.getDifficult(), GlobalVar.Mode.getRange());
             GlobalVar.playerList.get(GlobalVar.selectedPlayerID).addParty(party);
-//            System.out.println("Сколько партий: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList().size());
-
-
-
-
 
 
             final Node source = (Node) event.getSource();
