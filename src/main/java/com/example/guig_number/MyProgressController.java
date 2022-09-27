@@ -56,20 +56,22 @@ public class MyProgressController {
     }
 
 
-
     @FXML
     void initialize() {
 
-        String str="Игрок "+ GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName()
-                +". Его партии:";
+        String str = "Игрок " + GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName()
+                + ". Его партии:";
+        int i = 0;
 
-        String str2="";
-        for(Party party:GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList()){
-            str2=str2+"\n"+party.toString();
+        String str2 = "";
+        for (Party party : GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList()) {
+
+            i++;
+            str2 = str2 + "\n" + "Партия N" + i + " " + party.toString();
         }
-        str+=str2;
+        str += str2;
 
-    textArea.setText(str);
+        textArea.setText(str);
 
 
     }

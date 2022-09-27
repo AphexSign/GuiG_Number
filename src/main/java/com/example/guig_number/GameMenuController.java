@@ -72,11 +72,11 @@ public class GameMenuController {
                 //Записать все в party
                 //Передать все в список к игроку
 
-                Party party=new Party(totalScores,myTries,totalTries,true);
-                System.out.println("Кол-во игроков: "+GlobalVar.playerList.size());
-                System.out.println("Игрок - имя: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName());
+                Party party=new Party(totalScores,myTries,totalTries,true,GlobalVar.Mode.getDifficult(),GlobalVar.Mode.getRange());
+//                System.out.println("Кол-во игроков: "+GlobalVar.playerList.size());
+//                System.out.println("Игрок - имя: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName());
                 GlobalVar.playerList.get(GlobalVar.selectedPlayerID).addParty(party);
-                System.out.println("Сколько партий: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList().size());
+//                System.out.println("Сколько партий: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList().size());
 
 
              //   System.out.println("Количество партий:"+MainMenuController.player.getPartyList().size());
@@ -146,11 +146,11 @@ public class GameMenuController {
             //Записать все в party
             //Передать все в список к игроку
 
-            Party party=new Party(totalScores,myTries,totalTries,false);
-            System.out.println("Кол-во игроков: "+GlobalVar.playerList.size());
-            System.out.println("Игрок - имя: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName());
+            Party party=new Party(totalScores,myTries,totalTries,false,GlobalVar.Mode.getDifficult(),GlobalVar.Mode.getRange());
+//            System.out.println("Кол-во игроков: "+GlobalVar.playerList.size());
+//            System.out.println("Игрок - имя: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getName());
             GlobalVar.playerList.get(GlobalVar.selectedPlayerID).addParty(party);
-            System.out.println("Сколько партий: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList().size());
+//            System.out.println("Сколько партий: "+GlobalVar.playerList.get(GlobalVar.selectedPlayerID).getPartyList().size());
 
 
 

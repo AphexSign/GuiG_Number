@@ -4,13 +4,18 @@ public class Party {
     private int sumPoints;
     private int numTries;
     private int totalTries;
+    private Difficulty difficulty;
+    private Range range;
     private boolean win;
 
-    public Party(int sumPoints, int numTries, int totalTries, boolean win) {
+    public Party(int sumPoints, int numTries, int totalTries, boolean win,Difficulty difficulty,Range range) {
         this.sumPoints = sumPoints;
         this.numTries = numTries;
         this.totalTries = totalTries;
         this.win=win;
+        this.difficulty=difficulty;
+        this.range=range;
+
     }
 
     public int getSumPoints() {
@@ -45,14 +50,19 @@ public class Party {
         this.win = win;
     }
 
+
     @Override
     public String toString() {
         return "" +
                 "Очков за партию: " + sumPoints +
-                ", Число попыток: " + numTries +
-                ", Всего попыток: " + totalTries +
-                ", Выиграл=" + win;
+                ", число попыток: " + numTries +
+                ", всего попыток: " + totalTries +
+                ", сложность: " + difficulty +
+                ", диапазон: " + range +
+                ", выиграл: " + win +
+                '}';
     }
+//    }
 
 
 }

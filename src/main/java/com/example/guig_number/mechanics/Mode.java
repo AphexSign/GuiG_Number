@@ -68,6 +68,11 @@ public class Mode {
         return this.tryCount;
     }
 
+    public Range getRange(){
+        return this.range;
+    }
+
+
     public Difficulty getDifficult(){
         return this.difficult;
     }
